@@ -10,6 +10,12 @@
       <input type="search" name="search" placeholder="请输入商家或美食名称" class="search_input" />
       <input type="submit" name="submit" class="search_submit" />
     </form>
+    <button @click="an">按钮</button>
+    <button @click="mei">没</button>
+
+    <transition name="r">
+      <div :class="f"></div>
+    </transition>
   </section>
 </template>
 
@@ -17,13 +23,44 @@
 import HeaderTop from "../../componets/HeaderTop/HeaderTop";
 
 export default {
+  data() {
+    return {
+      f: ""
+    };
+  },
   components: {
     HeaderTop
+  },
+  methods: {
+    an() {
+      this.f = "fang";
+    },
+    mei() {
+      this.f = "";
+    }
   }
 };
 </script>
 
 <style>
+/* --------- */
+
+.r-enter,
+.r-leave-to {
+  transform: translateX(-100%);
+}
+.r-enter-to,
+.r-leave {
+  transform: translateX(0);
+}
+
+.fang {
+  transition: 0.5s linear;
+
+  height: 200px;
+  width: 100%;
+  background-color: rebeccapurple;
+}
 /* .header {
   height: 35px;
   background-color: green;

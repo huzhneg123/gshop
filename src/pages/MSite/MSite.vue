@@ -1,7 +1,7 @@
 <template>
   <section class="msite">
     <!--首页头部-->
-    <HeaderTop title="昌平区北七家宏福科技园">
+    <HeaderTop :title="address.name">
       <div class="header_search" slot="left">
         <i class="iconfont icon-sousuo icon-sousuo2"></i>
       </div>
@@ -9,17 +9,7 @@
         <span class="header_login_text">登录|注册</span>
       </span>
     </HeaderTop>
-    <!-- <header class="msite_header">
-      <div class="header_search">
-        <i class="iconfont icon-sousuo icon-sousuo2"></i>
-      </div>
-      <div class="header_title">
-        <div class="header_title_text ellipsis">昌平区北七家宏福科技园</div>
-      </div>
-      <span class="header_login">
-        <span class="header_login_text">登录|注册</span>
-      </span>
-    </header>-->
+
     <!--首页导航-->
     <nav class="msite_nav">
       <div class="swiper-container">
@@ -119,7 +109,7 @@
             </a>
             <a href="javascript:" class="link_to_food">
               <div class="food_container">
-                <img src="./images/nav/2.jpg" />
+                <img src="./images/nav/lunbo.webp" />
               </div>
               <span>土豪推荐</span>
             </a>
@@ -144,22 +134,20 @@
 <script>
 import HeaderTop from "../../componets/HeaderTop/HeaderTop";
 import ShopList from "../../componets/ShopList/ShopList";
-
-// 引入swiper
-// import Swiper from "swiper";
-// import "swiper/dist/css/swiper.min.css";
+// 引入映射函数,
+import { mapState } from "vuex";
 export default {
-  // mouted() {
-  //   new Swiper(".swiper-container", {
-  //     loop: true,
-  //     pagination: {
-  //       el: ".swiper-pagination"
-  //     }
-  //   });
-  // },
+  // 获取数据
+  mounted() {
+    this.$store.dispatch("getCategorys");
+  },
   components: {
     HeaderTop,
     ShopList
+  },
+  computed: {
+    // 读取后台数据的信息
+    ...mapState(["address", "categorys"])
   }
 };
 </script>

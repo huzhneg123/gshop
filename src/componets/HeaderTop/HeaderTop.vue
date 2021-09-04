@@ -6,18 +6,6 @@
     </div>
     <slot name="right"></slot>
   </header>
-
-  <!-- <header class="msite_header">
-      <div class="header_search">
-        <i class="iconfont icon-sousuo icon-sousuo2"></i>
-      </div>
-      <div class="header_title">
-        <div class="header_title_text ellipsis">昌平区北七家宏福科技园</div>
-      </div>
-      <span class="header_login">
-        <span class="header_login_text">登录|注册</span>
-      </span>
-  </header>-->
 </template>
 
 <script>
